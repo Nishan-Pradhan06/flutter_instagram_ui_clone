@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
       color: Colors.purple,
     ),
     Container(
-      color: Colors.green,
+      color: Colors.deepPurpleAccent,
     ),
   ];
   @override
