@@ -12,7 +12,11 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectIndex = 0;
   final List<Widget> _pages = [
     Container(
-      color: Colors.red,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/post/post.jpg'), fit: BoxFit.cover),
+      ),
+      // color: Colors.red,
     ),
     Container(
       color: Colors.orange,
@@ -40,7 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
 //app bar
   AppBar appBar(BuildContext context) {
     return AppBar(
-      elevation: 2,
       title: GestureDetector(
         child: Row(
           children: [
@@ -179,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
             width: 30,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/profile.png'),
+                  image: AssetImage('assets/images/profile.jpg'),
                 ),
                 shape: BoxShape.circle),
           ),
