@@ -48,7 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Row(
           children: [
             GestureDetector(
-              onTap: () {},
               child: Image.asset(
                 'assets/images/logo.png',
                 height: 100,
