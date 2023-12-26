@@ -1,4 +1,5 @@
-# instagram_bottom_navigation_bar
+# instagram_ui_clone
+
 
 A new Flutter project.
 
