@@ -44,18 +44,24 @@ class _HomeScreenState extends State<HomeScreen> {
       title: GestureDetector(
         child: Row(
           children: [
-            Image.asset(
-              'assets/images/logo.png',
-              height: 100,
-              width: 100,
+            GestureDetector(
+              onTap: () {},
+              child: Image.asset(
+                'assets/images/logo.png',
+                height: 100,
+                width: 100,
+              ),
             ),
             const SizedBox(
               width: 10,
             ),
-            Image.asset(
-              'assets/images/downarrow.png',
-              height: 10,
-              width: 10,
+            GestureDetector(
+              onTap: () {},
+              child: Image.asset(
+                'assets/images/downarrow.png',
+                height: 10,
+                width: 10,
+              ),
             ),
           ],
         ),
