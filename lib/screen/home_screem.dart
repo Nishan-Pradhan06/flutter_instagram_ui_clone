@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:instagram_bottom_navigation_bar/screen/add_screen.dart';
-// import 'package:instagram_bottom_navigation_bar/screen/profile_screen.dart';
-// import 'package:instagram_bottom_navigation_bar/screen/search_screen.dart';
-// import 'package:instagram_bottom_navigation_bar/screen/video_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,14 +11,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectIndex = 0;
   final List<Widget> _pages = [
-    // HomeScreen(),
-    // SearchScreen(),
-    // AddScreen(),
-    // VideoScreen(),
-    // ProfileScreen(),
-    // Container
-    //   color: Colors.red,
-    // ),
     Container(
       color: Colors.red,
     ),
@@ -42,18 +30,107 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: SvgPicture.asset('assets/svg/Instagram.svg'),
-        actions: const [
-          Icon(Icons.notification_add),
-          Icon(Icons.send_outlined),
-        ],
-      ),
+      backgroundColor: Colors.white,
+      appBar: appBar(context),
       body: _pages[_selectIndex],
       bottomNavigationBar: buttonNavigationbar(),
     );
   }
 
+//app bar
+  AppBar appBar(BuildContext context) {
+    return AppBar(
+      elevation: 2,
+      title: GestureDetector(
+        child: Row(
+          children: [
+            Image.asset(
+              'assets/images/logo.png',
+              height: 100,
+              width: 100,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Image.asset(
+              'assets/images/downarrow.png',
+              height: 10,
+              width: 10,
+            ),
+          ],
+        ),
+        onTap: () {
+          _showPopMenu(context);
+        },
+      ),
+      actions: [
+        Image.asset(
+          'assets/images/notificaton.png',
+          height: 30,
+          width: 30,
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Image.asset(
+          'assets/images/message.png',
+          height: 23,
+          width: 23,
+        ),
+        const SizedBox(
+          width: 15,
+        ),
+      ],
+    );
+  }
+
+  void _showPopMenu(BuildContext context) {
+    final RenderBox overlay =
+        Overlay.of(context).context.findRenderObject() as RenderBox;
+
+    showMenu(
+      context: context,
+      position: RelativeRect.fromRect(
+        Rect.fromPoints(
+          overlay.localToGlobal(Offset.zero),
+          overlay.localToGlobal(overlay.size.bottomRight(Offset.zero)),
+        ),
+        Offset.zero & overlay.size,
+      ),
+      items: [
+        PopupMenuItem(
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Following',
+                style: TextStyle(fontSize: 16),
+              ),
+              Icon(Icons.person_rounded),
+            ],
+          ),
+          onTap: () {
+            // Handle item 1 tap
+          },
+        ),
+        PopupMenuItem(
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Favorites', style: TextStyle(fontSize: 16)),
+              Icon(Icons.favorite),
+            ],
+          ),
+          onTap: () {
+            // Handle item 2 tap
+          },
+        ),
+        // Add more items as needed
+      ],
+    );
+  }
+
+//buttom navbar
   BottomNavigationBar buttonNavigationbar() {
     return BottomNavigationBar(
       currentIndex: _selectIndex,
