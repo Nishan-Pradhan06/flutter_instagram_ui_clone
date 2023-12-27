@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:instagram_bottom_navigation_bar/screen/post_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,13 +12,15 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectIndex = 0;
   final List<Widget> _pages = [
-    Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/post/post.jpg'), fit: BoxFit.cover),
-      ),
-      // color: Colors.red,
-    ),
+    // Container(
+    //   decoration: const BoxDecoration(
+    //     image: DecorationImage(
+    //         image: AssetImage('assets/post/.jpg'), fit: BoxFit.cover),
+    //   ),
+    //   // color: Colors.red,
+    // ),
+    const PostScreen(),
+
     Container(
       color: Colors.orange,
     ),
@@ -48,11 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Row(
           children: [
             GestureDetector(
-              child: Image.asset(
-                'assets/images/logo.png',
-                height: 100,
-                width: 100,
-              ),
+              child: SvgPicture.asset('assets/svg/logo.svg'),
             ),
             const SizedBox(
               width: 10,
@@ -72,16 +71,12 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       actions: [
-        Image.asset(
-          'assets/images/notificaton.png',
-          height: 30,
-          width: 30,
-        ),
+        SvgPicture.asset('assets/svg/notification.svg'),
         const SizedBox(
           width: 10,
         ),
-        Image.asset(
-          'assets/images/message.png',
+        SvgPicture.asset(
+          'assets/svg/message.svg',
           height: 23,
           width: 23,
         ),
