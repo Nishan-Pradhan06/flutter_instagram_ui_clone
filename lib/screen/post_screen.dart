@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_bottom_navigation_bar/widget/story_widget.dart';
 
 class PostScreen extends StatelessWidget {
   const PostScreen({super.key});

@@ -19,8 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
     //   ),
     //   // color: Colors.red,
     // ),
-    const PostScreen(),
-
+    // const PostScreen(),
+    Container(
+      color: Colors.red,
+    ),
     Container(
       color: Colors.orange,
     ),
